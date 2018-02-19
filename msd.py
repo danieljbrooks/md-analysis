@@ -7,7 +7,7 @@ Contact: daniel.brooks@alumni.caltech.edu
 
 import numpy as np
 
-def compute_MSD(xyz, step_jump=1, start_frame=0):
+def compute_msd(xyz, step_jump=1, start_frame=0):
   """
   Computes the MSD of a set of atoms in a trajectory.
   
