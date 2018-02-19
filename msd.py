@@ -2,7 +2,6 @@
 Compute mean-squared displacement (MSD) for diffusion simulations - msd.py
 
 Contact: daniel.brooks@alumni.caltech.edu
-
 """
 
 import numpy as np

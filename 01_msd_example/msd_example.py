@@ -2,7 +2,6 @@
 Simple script showing an example MSD calculation.
 
 Contact: daniel.brooks@alumni.caltech.edu
-
 """
 
 #Import the required packages and include scripts in path.
