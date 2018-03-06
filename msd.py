@@ -1,5 +1,6 @@
 """
-Compute mean-squared displacement (MSD) for diffusion simulations - msd.py
+Compute mean-squared displacement (MSD) averaged over entire trajectory
+for diffusion simulations.
 
 Contact: daniel.brooks@alumni.caltech.edu
 """
