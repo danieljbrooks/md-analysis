@@ -96,13 +96,13 @@ def fit_d(MSD, times, frac_range=[0.25, 0.50]):
 
   #Define the fitting range.
   nf = len(MSD)
-  frame_bound = [round(nf*frac_range[0]), round(nf*frac_range[0])]
+  frame_bound = [int(round(nf*frac_range[0])), int(round(nf*frac_range[1]))]
 
   #Extract the relevant frames.
   MSD_fit = MSD[frame_bound[0]:frame_bound[1]]
   times_fit = times[frame_bound[0]:frame_bound[1]]
-
-  #Perform the fit.
+  
+  #Perform the fitting. 
   coeff = np.polyfit(times_fit, MSD_fit, 1)
   D_nm2_ps = coeff[0]/6.0
 
