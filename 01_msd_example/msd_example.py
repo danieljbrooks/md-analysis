@@ -19,4 +19,5 @@ li_ind = t.topology.select("element Li")
 print("Average MSD: ", msd_ave)
 
 #Compute and print the diffusion coefficient.
-
+D = fit_d(msd_ave, t.time)
+print("D (cm^2/s): ", D)
