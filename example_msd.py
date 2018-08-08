@@ -5,13 +5,13 @@ Contact: daniel.brooks@alumni.caltech.edu
 """
 
 import mdtraj as md
-import sys
 
 from msd import compute_msd, fit_d
 
 #Load the trajectory using mdtraj.
 TRJ_FILE = "short.lammpstrj"
 GEO_FILE = "structure.pdb"
+t = md.load(TRJ_FILE, top=GEO_FILE)
 
 #Compute and print the lithium MSD. 
 li_ind = t.topology.select("element Li")
@@ -21,3 +21,4 @@ print("Li MSD(t): ", msd_ave)
 #Compute and print the diffusion coefficient.
 D = fit_d(msd_ave, t.time)
 print("D_Li (cm^2/s): ", D)
+
