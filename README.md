@@ -1,5 +1,5 @@
 # MD Analysis
-Python scripts for analyzing MD trajectories.
+Python script for analyzing MD trajectories.
 
 # About
 Thie repository contains various python scripts for analyzing molecular dynamics trajectories in the MDTraj trajectory format.
