@@ -15,6 +15,8 @@ t = md.load("short.lammpstrj", top="structure.pdb")
 
 #Compute and print the lithium MSD. 
 li_ind = t.topology.select("element Li")
-[ave, atomic] = compute_msd(t.xyz[:,li_ind,:])
-print("Average MSD: ", ave)
+[msd_ave, msd_atomic] = compute_msd(t.xyz[:,li_ind,:])
+print("Average MSD: ", msd_ave)
+
+#Compute and print the diffusion coefficient.
 
