@@ -75,3 +75,42 @@ def compute_msd(xyz, step_jump=1, start_frame=0):
   #Return the average and atomic MSD vectors.
   return (MSD_vector, atom_MSD_vector)
 
+def fit_d(MSD, times, frac_range=[0.25, 0.50]):
+  """
+  Fits D linearly to the given MSD over the fraction of the trajectory
+  specified by fitting_range.
+
+  Parameters
+  ----------
+  MSD : numpy array
+      Contains MSD at a series times (nm^2).
+  times : numpy array
+      Times of each MSD measurement (ps).
+  frac_range : [float lower, float upper]
+      Optional: Perform fit between [lower, upper] fractions of trajectory.
+
+  Returns
+  -------
+  D : float (cm^2/s)
+  """
+
+  #Define the fitting range.
+  nf = len(MSD)
+  frame_bound = [round(nf*frac_range[0]), round(nf*frac_range[0])]
+
+  #Extract the relevant frames.
+  MSD_fit = MSD[frame_bound[0]:frame_bound[1]]
+  times_fit = times[frame_bound[0]:frame_bound[1]]
+
+  #Perform the fit.
+  coeff = np.polyfit(times_fit, MSD_fit, 1)
+  D_nm2_ps = coeff[0]/6.0
+
+  #Specify unit conversion factors to cm^2/s.
+  nm2_2_cm2 = pow(10,14)
+  ps_2_s = pow(10,12)
+  unit_coeff = nm2_2_cm2/ps_2_s
+
+  #Perform unit conversion and return D.
+  D_cm2_s = D_nm2_ps * unit_coeff
+  return D_cm2_s
